@@ -1,4 +1,4 @@
-package de.tstu.swing.background;
+package io.github.thorstenstueker.swing.background;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -141,7 +141,6 @@ public class BackgroundPanel extends JPanel {
         int scaledH = (int) (ih * scale);
         int x = (pw - scaledW) / 2;
         int y = (ph - scaledH) / 2;
-        // clip to panel bounds so the overflowing parts are not drawn outside
         Shape oldClip = g.getClip();
         g.setClip(0, 0, pw, ph);
         g.drawImage(image, x, y, scaledW, scaledH, null);

@@ -1,0 +1,1 @@
+Thir repository is under MIT license by Thorsten Stueker. There is no responsibility of the Author is something is not working as expexted. There is no kind of warranty for this library.

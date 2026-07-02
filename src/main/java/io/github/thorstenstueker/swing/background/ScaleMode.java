@@ -1,4 +1,4 @@
-package de.tstu.swing.background;
+package io.github.thorstenstueker.swing.background;
 
 /**
  * Defines how a background image is scaled to fit the panel.

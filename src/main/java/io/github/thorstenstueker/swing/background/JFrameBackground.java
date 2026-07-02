@@ -1,4 +1,4 @@
-package de.tstu.swing.background;
+package io.github.thorstenstueker.swing.background;
 
 import javax.swing.*;
 import java.awt.*;

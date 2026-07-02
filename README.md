@@ -14,7 +14,7 @@ Eine schlanke Swing-Bibliothek, die es ermöglicht, beliebigen `JFrame`-Fenstern
 ## Bauen & Installieren
 
 ```bash
-git clone https://github.com/tstueker/JpanelBackground.git
+git clone https://github.com/thorstenstueker/JpanelBackground.git
 cd JpanelBackground
 mvn install
 ```
@@ -54,9 +54,9 @@ Das erzeugte `target/jpanel-background-1.0.0.jar` in den Classpath des Projekts 
 ### Import
 
 ```java
-import de.tstu.swing.background.BackgroundPanel;
-import de.tstu.swing.background.ScaleMode;
-import de.tstu.swing.background.JFrameBackground;
+import io.github.thorstenstueker.swing.background.BackgroundPanel;
+import io.github.thorstenstueker.swing.background.ScaleMode;
+import io.github.thorstenstueker.swing.background.JFrameBackground;
 ```
 
 ---
