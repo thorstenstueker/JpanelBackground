@@ -11,9 +11,9 @@ import java.net.URL;
 /**
  * Utility class for attaching a background image to an existing JFrame.
  * <p>
- * Replaces the frame's content pane with a {@link BackgroundPanel} and
- * migrates all existing children into it. The layout manager of the original
- * content pane is preserved.
+ * Replaces the frame's content pane with a {@link BackgroundPanel} that
+ * wraps the original content pane as a transparent child. The original pane
+ * retains its layout manager and all its children unchanged.
  * <p>
  * Usage:
  * <pre>
@@ -47,19 +47,20 @@ public final class JFrameBackground {
     }
 
     /**
-     * Migrates all children and the layout manager from the current content
-     * pane into the given BackgroundPanel and sets it as the new content pane.
+     * Wraps the existing content pane inside the BackgroundPanel.
+     * The original pane keeps its layout manager (avoiding issues with
+     * GroupLayout, which is tied to exactly one container) and is made
+     * transparent so the background image shows through.
      */
     private static BackgroundPanel replaceContentPane(JFrame frame, BackgroundPanel bgPanel) {
         Container oldPane = frame.getContentPane();
 
-        bgPanel.setLayout(oldPane.getLayout());
-
-        Component[] children = oldPane.getComponents();
-        for (Component child : children) {
-            oldPane.remove(child);
-            bgPanel.add(child);
+        if (oldPane instanceof JComponent) {
+            ((JComponent) oldPane).setOpaque(false);
         }
+
+        bgPanel.setLayout(new BorderLayout());
+        bgPanel.add(oldPane, BorderLayout.CENTER);
 
         frame.setContentPane(bgPanel);
         frame.revalidate();
